@@ -18,7 +18,7 @@ var articleOne ={
             </p>
             <p>
                 This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
-            </p>  
+            </p> 
          
 };
 
