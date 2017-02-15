@@ -10,39 +10,37 @@ var articleOne ={
   title: 'Article one | Vikash kumar choudhary ',
   heading:'Article one'.
   `Date : "December 10, 1996"
-  content:` 
+  content:
           <p>
-             `  This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
+              This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
             </p>
             <p>
                 This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
             </p>
             <p>
                 This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
-            </p> 
-        
-};`
-
+            </p>
+       
+};
 function createTemplate (data) {
     var title = data.title;
     var date = data.data;
     var heading = data.heading;
     var content = data.content;
     
-var htmlTemplate =
+var htmlTemplate = `
 <!DOCTYPE html>
     <head>
-        <title>
-        ${title}
-            Article One | Vikash kumar choudhary
-        </title>
+    <title>
+            ${title}
+  </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link href="/ui/style.css" rel="stylesheet" />
-    </head>
+  </head>
     <body>
         <div class="container">
             <div>
-            <a href="/">Home</a>
+           <a href="/">Home</a>
         </div>
         <hr/>
         <h3>
@@ -50,7 +48,6 @@ var htmlTemplate =
         </h3>
         <div>
         ${date}
-            December 10,1996
         </div>
         <div>
         ${content}
@@ -58,9 +55,9 @@ var htmlTemplate =
         </div>
     </body>
 </html>
-;
+`;
 return  htmlTemplate;
-
+}
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
