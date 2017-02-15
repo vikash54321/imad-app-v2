@@ -10,7 +10,7 @@ var articleOne ={
   title: 'Article one | Vikash kumar choudhary ',
   heading:'Article one'.
   `Date : "December 10, 1996"
-  content: 
+  content:` 
           <p>
              `  This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
             </p>
@@ -20,8 +20,8 @@ var articleOne ={
             <p>
                 This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
             </p> 
-         
-};
+        
+};`
 
 function createTemplate (data) {
     var title = data.title;
