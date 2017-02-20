@@ -6,8 +6,9 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleOne ={
-			  title: 'Article one | Vikash kumar choudhary ',
+var articles = {
+'article-one':
+			  title: 'Article One | Vikash kumar choudhary ',
 			  heading:'Article one',
 			  Date : `December 10,1996`,
 			  content:
@@ -21,7 +22,40 @@ var articleOne ={
 			                This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
 			            </p>`
 			       
-			};
+			},
+'article-two':
+			  title: 'Article Two | Vikash kumar choudhary ',
+			  heading:'Article two',
+			  Date : `December 10,1996`,
+			  content:
+			          `<p>
+			              Het Bro, Second article
+			            </p>
+			            <p>
+			                This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
+			            </p>
+			            <p>
+			                This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
+			            </p>`
+			       
+			},
+'article-three':
+			  title: 'Article Three | Vikash kumar choudhary ',
+			  heading:'Article three',
+			  Date : `December 10,1996`,
+			  content:
+			          `<p>
+			              This is boss third article
+			            </p>
+			            <p>
+			                This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
+			            </p>
+			            <p>
+			                This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
+			            </p>`
+			       
+			},
+};
 			function createTemplate (data) {
 			    var title = data.title;
 			    var date = data.data;
@@ -63,17 +97,13 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function (req, res) {  
+app.get('/:articleName', function(req, res) {
+    //articleName == article-one
+    //articles[articleName] == {} content object for article one
+    var articleName = req.params.articleName;
   res.send(createTemplate(articleOne));
 });
 
-app.get('/article-two',function (req, res) {  
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three',function (req, res) {  
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'))
-;});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
