@@ -4,13 +4,12 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-
-
+			
 var articles = {
-'article-one':
-			  title: 'Article One | Vikash kumar choudhary ',
+'article-one':  {
+			  title: 'Article one | Vikash kumar choudhary ',
 			  heading:'Article one',
-			  Date : `December 10,1996`,
+			  Date : 'December 10, 1996',
 			  content:
 			          `<p>
 			              This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
@@ -23,13 +22,13 @@ var articles = {
 			            </p>`
 			       
 			},
-'article-two':
-			  title: 'Article Two | Vikash kumar choudhary ',
-			  heading:'Article two',
-			  Date : `December 10,1996`,
+'article-two':  {
+    title: 'Article Two | Vikash kumar choudhary ',
+			  heading:'Article Two',
+			  Date : 'December 10, 1996',
 			  content:
 			          `<p>
-			              Het Bro, Second article
+			              This is  vikash secondarticle and i am learning HTML.This is  vikash secondarticle and i am learning HTML.This is  vikash secondarticle and i am learning HTML.This is  vikashsecond article and i am learning HTML.This is  vikash secondarticle and i am learning HTML.
 			            </p>
 			            <p>
 			                This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
@@ -39,13 +38,13 @@ var articles = {
 			            </p>`
 			       
 			},
-'article-three':
-			  title: 'Article Three | Vikash kumar choudhary ',
-			  heading:'Article three',
-			  Date : `December 10,1996`,
+'article-three': {
+    title: 'Article Three|Vikash kumar choudhary ',
+			  heading:'Article Three',
+			  Date : 'December 10, 1996',
 			  content:
 			          `<p>
-			              This is boss third article
+			              This is  vikash third article and i am learning HTML.This is  vikash third article and i am learning HTML.This is  vikash third article and i am learning HTML.This is  vikash third article and i am learning HTML.This is  vikash third article and i am learning HTML.
 			            </p>
 			            <p>
 			                This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
@@ -54,9 +53,10 @@ var articles = {
 			                This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
 			            </p>`
 			       
-			},
+			} 
 };
-			function createTemplate (data) {
+
+ function createTemplate (data) {
 			    var title = data.title;
 			    var date = data.data;
 			    var heading = data.heading;
@@ -97,13 +97,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/:articleName', function(req, res) {
-    //articleName == article-one
-    //articles[articleName] == {} content object for article one
+app.get('/:articleName', function (req, res) {
+    // articleName == article-one
+   // articles[articleName] == {} content object for article one
     var articleName = req.params.articleName;
   res.send(createTemplate(articles[articleName]));
 });
-
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
