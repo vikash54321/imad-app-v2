@@ -18,7 +18,7 @@ var articles = {
 'article-one':  {
 			  title: 'Article one | Vikash kumar choudhary ',
 			  heading:'Article one',
-			  Date : 'December 1, 1996',
+			  Date : 'Sep 5, 2016',
 			  content:
 			          `<p>
 			              This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
@@ -34,7 +34,7 @@ var articles = {
 'article-two':  {
     title: 'Article Two | Vikash kumar choudhary ',
 			  heading:'Article Two',
-			  Date : 'December 5, 1996',
+			  Date : 'Sep 10, 2016',
 			  content:
 			          `<p>
 			              This is  vikash secondarticle and i am learning HTML.This is  vikash secondarticle and i am learning HTML.This is  vikash secondarticle and i am learning HTML.This is  vikashsecond article and i am learning HTML.This is  vikash secondarticle and i am learning HTML.
@@ -90,7 +90,7 @@ var articles = {
 			            ${heading}
 			        </h3>
 			        <div>
-			        ${date}
+			        ${date.toDateString()}
 			        </div>
 			        <div>
 			        ${content}
@@ -135,11 +135,23 @@ app.get('/submit-name', function(req, res) { // URL: /submit-name?name=xxxxx
     res.send(JSON.stringify(names));
 });
 
-app.get('/:articleName', function (req, res) {
+app.get('/articles/:articleName', function (req, res) {
     // articleName == article-one
    // articles[articleName] == {} content object for article one
-    var articleName = req.params.articleName;
-  res.send(createTemplate(articles[articleName]));
+   
+   // SELECT * FROM article WHERE title = 'article-one' 
+    pool.query("SELECT * FROM article WHERE title = '" + req.params.articleName + "'", function (err, result) {
+        if (err) {
+            res.status(500).send(err.toString());
+        } else {
+            if (result.rows.length === 0) {
+                res.status(404).send('Article not found');
+            } else {
+              var articleData = result.rows[0]; 
+              res.send(createTemplate(articleData));
+              }
+            }
+        });
 });
 
 app.get('/ui/style.css', function (req, res) {
