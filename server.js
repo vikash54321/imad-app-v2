@@ -18,7 +18,7 @@ var articles = {
 'article-one':  {
 			  title: 'Article one | Vikash kumar choudhary ',
 			  heading:'Article one',
-			  Date : 'December 10, 1996',
+			  date : 'December 10, 1996',
 			  content:
 			          `<p>
 			              This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.This is  vikash first article and i am learning HTML.
@@ -34,7 +34,7 @@ var articles = {
 'article-two':  {
     title: 'Article Two | Vikash kumar choudhary ',
 			  heading:'Article Two',
-			  Date : 'December 1, 1996',
+			  date : 'December 1, 1996',
 			  content:
 			          `<p>
 			              This is  vikash secondarticle and i am learning HTML.This is  vikash secondarticle and i am learning HTML.This is  vikash secondarticle and i am learning HTML.This is  vikashsecond article and i am learning HTML.This is  vikash secondarticle and i am learning HTML.
@@ -50,7 +50,7 @@ var articles = {
 'article-three': {
     title: 'Article Three|Vikash kumar choudhary ',
 			  heading:'Article Three',
-			  Date : 'December 2, 1996',
+			  date : 'December 2, 1996',
 			  content:
 			          `<p>
 			              This is  vikash third article and i am learning HTML.This is  vikash third article and i am learning HTML.This is  vikash third article and i am learning HTML.This is  vikash third article and i am learning HTML.This is  vikash third article and i am learning HTML.
@@ -67,7 +67,7 @@ var articles = {
 
  function createTemplate (data) {
 			    var title = data.title;
-			    var date = data.Date;
+			    var date = data.date;
 			    var heading = data.heading;
 			    var content = data.content;
 			    
@@ -90,7 +90,7 @@ var articles = {
 			            ${heading}
 			        </h3>
 			        <div>
-			        ${Date}
+			        ${date.toDateString()}
 			        </div>
 			        <div>
 			        ${content}
