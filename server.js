@@ -90,7 +90,7 @@ var articles = {
 			            ${heading}
 			        </h3>
 			        <div>
-			        ${date}
+			        ${Date}
 			        </div>
 			        <div>
 			        ${content}
