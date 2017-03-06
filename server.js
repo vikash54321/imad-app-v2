@@ -34,7 +34,7 @@ var articles = {
 'article-two':  {
     title: 'Article Two | Vikash kumar choudhary ',
 			  heading:'Article Two',
-			  Date : 'December 10, 1996',
+			  Date : 'December 1, 1996',
 			  content:
 			          `<p>
 			              This is  vikash secondarticle and i am learning HTML.This is  vikash secondarticle and i am learning HTML.This is  vikash secondarticle and i am learning HTML.This is  vikashsecond article and i am learning HTML.This is  vikash secondarticle and i am learning HTML.
@@ -50,7 +50,7 @@ var articles = {
 'article-three': {
     title: 'Article Three|Vikash kumar choudhary ',
 			  heading:'Article Three',
-			  Date : 'December 10, 1996',
+			  Date : 'December 2, 1996',
 			  content:
 			          `<p>
 			              This is  vikash third article and i am learning HTML.This is  vikash third article and i am learning HTML.This is  vikash third article and i am learning HTML.This is  vikash third article and i am learning HTML.This is  vikash third article and i am learning HTML.
