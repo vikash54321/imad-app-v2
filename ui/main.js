@@ -1,6 +1,7 @@
 
 // Submit username/password to login
-var submit = document.getElementById('submit_btn');
+var login = document.getElementById('login_btn');
+var register = document.getElementById('register_btn');
 submit.onclick = function () {
     
       // Create a request object
